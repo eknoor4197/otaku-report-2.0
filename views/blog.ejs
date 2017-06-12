@@ -1,0 +1,45 @@
+<% include partials/header %>
+
+<div id="blog-page" class="jumbotron">
+	<h1>The Anime Knight Blog!</h1>
+    <p>The most up-to-date Anime Community!</p>
+</div>
+
+<div class="container">
+		
+	    <div class="row">
+
+	    	<% blog.forEach(function(blog,index) { %>
+
+	      
+		  <div class="col-md-4 col-sm-6">
+		    <div style="margin-bottom: -20px;"><em><%= blog.date %></em></div>
+		    <div style="margin-bottom: -20px;margin-right:50px;float: right;letter-spacing: 0.7px;"><a class="author" href="#"><em><%= blog.author %></em></a></div>
+		    
+		    
+		    <div class="thumbnail">
+		    	<a href="/blog/<%= blog._id %>/<%= blog.title %>"><img src="<%= blog.image %>"></a>
+		    </div>
+
+		    <div class="caption">
+		    	<a href="/blog/<%= blog._id %>/<%= blog.title %>"><h3><%= blog.title %></h3></a><br>
+		    </div>
+
+		    <!-- <span><em>By <a class="author" href="#"><%= blog.author %></a></em></span><br><br> -->
+
+		    <!-- <span><%= blog.created.toDateString(); %></span> -->
+
+		    <!-- <div class="relative">
+			    <p><%- blog.body.substring(0,275); %></p>
+			    <div class="absolute"></div>
+			</div> -->
+		    
+		  </div>
+
+	    <% }) %>
+
+	    </div>
+
+</div>
+
+<% include partials/footer %>

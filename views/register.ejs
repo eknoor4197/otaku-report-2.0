@@ -1,0 +1,31 @@
+<% include partials/header %>
+
+<div class="container">
+
+	<form class="ui form" action="/register" method="POST">
+
+	    <h1>Register</h1>
+	    <div class="field">
+	    <label>Username</label>
+		  <input type="text" name="username" placeholder="Username">
+	    </div>	
+
+		<div class="field">
+		<label>Password</label>
+		  <input type="password" name="password" placeholder="Password">
+		</div>
+
+		<!-- <div class="field">
+		<label>Email</label>
+		  <input type="email" name="email" placeholder="Email">
+		</div> -->
+
+		<button class="ui secondary basic button">Sign Up</button>
+
+		<h3>Already have an account?</h3>
+		<a class="ui secondary basic button" href="/login">Login</a> 
+	</form>
+
+</div>
+
+<% include partials/footer %>

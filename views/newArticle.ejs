@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+
+<div class="jumbotron">
+	<h1>New Blog</h1>
+</div>
+
+<form class="ui form" action="/blog" method="POST">
+  <div class="field">
+    <label>Title</label>
+    <input type="text" name="article[title]" placeholder="title">
+  </div>
+
+  <div class="field">
+  	<label>Date</label>
+    <input type="text" name="article[date]" placeholder="date">
+  </div>
+  <div class="field">
+    <label>Image</label>
+    <input id="image" type="text" name="article[image]" placeholder="image">
+  </div>
+  <div class="field">
+    <label>Text</label>
+    <textarea type="text" name="article[body]"></textarea> 
+  </div>
+  <button id="submit" class="ui secondary basic button">Submit</button>
+</form>
+
+
+<% include ./partials/footer %>

@@ -1,0 +1,63 @@
+<% include partials/header %>
+
+
+<div class="jumbotron" style="color: white;margin-top: 75.5px; /* lets see */height: 89%;background-image: url('https://images3.alphacoders.com/666/thumb-1920-666312.jpg');background-size: cover;opacity: 0.8;">
+  <div class="container">
+	<h1 style="font-weight : 900;text-align: center;text-shadow: 5px 5px rgba(0,0,0,0.3);margin-left: 200px;margin-top: 100px;width: 60%;">Welcome To Animedia Admin</h1>
+  </div>
+</div> 
+  
+</div>
+
+<div class="container" style="height: 50%;">
+  <h1 style="font-size: 50px;text-align: center;padding-bottom: 60px;"><p>CREATE A NEW POST IN :</p></h1>
+  <ul style="text-align: center;" class="list-inline">
+	  <li><h2><a href="/news/new">News</a></h2></li>
+	  <li><h2><a href="/blog/new">Blog</a></h2></li>
+	  <li><h2><a href="/review/new">Reviews</a></h2></li>
+	  <li><h2><a href="/revisited/new">Revisited</a></h2></li>
+  </ul>
+</div>  
+
+<div style="background-color:white;padding-top: 30px;">
+  <h1 style="font-size: 50px;text-align: center;">UPDATE EXISTING</h1>
+
+  	    <div class="row">
+
+	    	<% latest.forEach(function(latest,index) { %>
+
+
+		  <div class="col-md-4 col-sm-6">
+		  		    
+		    <div class="thumbnail">
+		      <div class="img">
+		        <a href="#" class="sub-category">TV</a>
+		    	<a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><img src="<%= latest.image %>"></a>
+		    	<!-- <a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><h2><%= latest.title %></h2></a> -->
+		      </div>	
+		    </div>
+
+		    <div class="caption">
+		    	<a href="/latest/<%= latest._id %>/<%= latest.title %>"><h3><%= latest.title %></h3></a>
+		    </div>
+
+		    <span><em>By <a class="author" href="/author/<%= latest.author %>"><%= latest.author %></a> on <%= latest.date %></em></span><br><br>
+
+		    <!--  <span><%= latest.created.toDateString(); %></span> -->
+
+		    <!-- <div class="relative">
+			    <p><%- latest.body.substring(0,250); %></p>
+			    <div class="absolute"></div>
+			</div>  -->
+		    
+		  </div>
+
+	    <% }) %>
+
+	    </div>
+
+
+</div>
+
+
+<% include partials/footer %>

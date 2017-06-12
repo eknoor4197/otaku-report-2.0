@@ -1,0 +1,43 @@
+<div id="landing">
+		
+		<div class="row"> 
+
+		<div class="col-md-4 col-sm-6">
+
+
+
+		    <% latest.forEach(function(latest,index) { %>
+
+			    <% if(index == 0)  { %>
+
+				    <div class="thumbnail" id="main-1" >
+				      <div class="img">
+				        <a href="/<%= latest.postType %>/<%= latest.referenceId %>"><img class="img-responsive" src="<%= latest.image %>"></a>
+				        <a href="/<%= latest.postType %>/<%= latest.referenceId %>"><h2><%= latest.title %></h2> </a>	
+				      </div>
+				    </div>  
+
+		          </div>
+
+		        <% } else { %>
+
+		          <div class="col-md-4 col-sm-6">
+
+				    <div class="thumbnail" class="main-other">
+				      <div class="img">
+				        <a href="/<%= latest.postType %>/<%= latest.referenceId %>"><img class="img-responsive" src="<%= latest.image %>"></a>
+				        <a href="/<%= latest.postType %>/<%= latest.referenceId %>"><h2><%= latest.title %></h2> </a>	
+				      </div>
+				    </div>            
+				  </div>  
+
+		        <% } %>
+
+		    <% }) %>
+
+
+        </div>
+
+        </div> 
+
+        </div>

@@ -1,0 +1,39 @@
+<% include partials/header %>
+
+<div class="container">
+		
+	    <div class="row">
+
+	    	<% review.forEach(function(review,index) { %>
+
+
+		  <div class="col-md-4 col-sm-6">
+		    
+		    <div class="thumbnail">
+		      <div class="img">
+		    	<a href="/review/<%= review._id %>/<%= review.title %>"><img src="<%= review.image %>"></a>
+		      </div>	
+		    </div>
+
+		    <div class="caption">
+		    	<a href="/review/<%= review._id %>/<%= review.title %>"><h2><%= review.title %></h2></a>
+		    </div>
+
+		    <span><em>By <a class="author" href="#"><%= review.author %></a> on <%= review.date %></em></span><br><br>
+
+		    <!-- <span><%= review.created.toDateString(); %></span> -->
+
+		    <div class="relative">
+			    <p><%- review.body.substring(0,250); %></p>
+			    <div class="absolute"></div>
+			</div>
+		    
+		  </div>
+
+	    <% }) %>
+
+	    </div>
+
+</div>
+
+<% include partials/footer %>

@@ -1,0 +1,373 @@
+<% include partials/header %>
+
+<!-- <div class="hero">
+  	<h1>Anime Knight</h1>
+  	<ul class="list-inline">
+  	  <li><a id="login" class="big ui inverted button" href="/login">Login</a></li>
+  	  <li><a id="signup" class="big ui inverted button" href="/register">Sign Up</a></li>
+  	</ul>
+</div>
+
+<br><br><br><br> -->
+
+		   
+
+		<div id="landing">
+
+		
+		<div class="row"> 
+
+		<!-- <div class="col-md-12 col-sm-6"> -->
+
+		    <% latest.forEach(function(latest,index) { %>
+
+		        <% if( index == 0 ) { %>
+
+
+		      <div class="col-md-4 col-sm-6">
+		         
+				    <div class="thumbnail" id="main-1">
+				      <div class="img latest-colored">
+				        <a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><img class="img-responsive" src="<%= latest.image %>"></a>
+				        <a href="/<%= latest.postType %>" class="post-type"><%= latest.postType.toUpperCase(); %></a> 
+				        <a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><h2><%= latest.title %></h2></a>	
+				      </div>
+				    </div>  
+
+				  </div>  
+
+
+		    <% } else { %>
+		         
+
+		          <div class="col-md-4 col-sm-6">
+		         
+				    <div class="main-other">
+				      <div class="img latest-colored">
+				        <a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><img class="img-responsive" src="<%= latest.image %>"></a>
+				        <a href="/<%= latest.postType %>" class="post-type"><%= latest.postType.toUpperCase(); %></a> 
+				        <a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><h2><%= latest.title %></h2></a>	
+				      </div>
+				    </div>  
+
+				  </div>   
+
+			<% } %>	  
+		 
+		    <% }) %>
+		    <!-- </div> -->
+
+		    
+        </div> 
+
+
+        </div>
+
+<div class="container">
+
+        <a href="/news" class="post-detail trending">NEWS</a>
+
+	    <div class="row">
+
+	    	<% news.forEach(function(news,index) { %>
+
+
+		  <div class="col-md-4 col-sm-6 news-section">
+		  		    
+		    <div class="thumbnail">
+		      <div class="img">
+		        <!-- <a href="#" class="sub-category">TV</a> -->
+		    	<a href="/news/<%= news._id %>/<%= news.title %>"><img src="<%= news.image %>"></a>
+		    	<!-- <a href="/news/<%= news._id %>"><h2><%= news.title %></h2></a> -->
+		      </div>	
+		    </div>
+
+		    <div class="caption">
+		    	<a href="/news/<%= news._id %>/<%= news.title %>"><h3 style="color: #333333;"><%= news.title %></h3></a>
+		    </div>
+
+		    <span><em>By <a class="author" href="/author/<%= news.author %>"><%= news.author %></a> on <%= news.date %></em></span><br><br>
+		    
+		  </div>
+
+	    <% }) %>
+
+
+
+	    </div>
+
+</div>       
+
+	  
+
+
+<div class="container">
+
+        <a href="/blog" class="post-detail trending">BLOG</a>
+
+	    <div class="row">
+
+	    	<% blog.forEach(function(blog,index) { %>
+	    	
+	    	  <div class="col-md-4 col-sm-6 blog-section">
+		  		    
+		    <div class="thumbnail">
+		      <div class="img">
+		        <a href="#" class="sub-category">TV</a>
+		    	<a href="/blog/<%= blog._id %>/<%= blog.title %>"><img src="<%= blog.image %>"></a>
+		    	<!-- <a href="/blog/<%= blog._id %>"><h3><%= blog.title %></h3></a> -->
+		      </div>	
+		    </div>
+
+		    <div class="caption">
+		    	<a href="/blog/<%= blog._id %>/<%= blog.title %>"><h3><%= blog.title %></h3></a>
+		    </div>
+
+		    <span><em>By <a class="author" href="/author/<%= blog.author %>"><%= blog.author %></a> on <%= blog.date %></em></span><br><br>
+
+		     <!-- <span><%= blog.created.toDateString(); %></span> -->
+      
+           <!--  <div class="relative">
+			    <p><%- blog.body.substring(0,250); %></p>
+			    <div class="absolute"></div>
+			</div>   -->
+		    
+		  </div>
+
+	    	<% }) %>
+
+	    	<% featuredBlogs.forEach(function(featured,index) { %>
+	    	  <div class="row">
+              <div class="img wrapper">
+
+              <img class="img-responsive" src="<%= featured.image %>">
+		      <a href="/blog" class="post-type"><i class="fa fa-certificate" style="padding-right: 6px;font-size: 12px;" aria-hidden="true"></i>BLOG | HIGHLIGHT</a>
+  
+		      <div class="overlay caption">
+
+	          <a href="/blog/<%= featured._id %>/<%= featured.title %>"><h1> <%= featured.title %></h1></a>
+		        <span class="featured-author" ><em><a class="author" href="#"><%= featured.author %></a> | <%= featured.date %></em></span>
+		        
+		      </div>
+	         </div>
+
+	    	<% }) %>
+	    	</div>
+	   
+
+</div>      
+
+
+
+
+<!-- <div class="container"> -->
+
+    <a href="/review" class="post-detail trending">REVIEWS</a>
+		
+	    <div class="row">
+
+	      <% review.forEach(function(review,index) { %>
+
+		  <div class="col-md-4 col-sm-6 review-section">
+		    
+		    <div class="thumbnail">
+		      <div class="img">
+		    	<a href="/review/<%= review._id %>/<%= review.title %>"><img src="<%= review.image %>"></a>
+		    	<!-- <a href="/review/<%= review._id %>"><h2><%= review.title %></h2></a> -->
+		      </div>	
+		    </div>
+
+		    <div class="caption">
+		    	<a href="/review/<%= review._id %>/<%= review.title %>"><h3><%= review.title %></h3></a>
+		    </div>
+
+		    <span><em>By <a class="author" href="#"><%= review.author %></a> on <%= review.date %></em></span><br><br>
+
+		    <!-- <span><%= review.created.toDateString(); %></span>
+
+		    <!-- <div class="relative">
+			    <p><%- review.body.substring(0,250); %></p>
+			    <div class="absolute"></div>
+			</div> -->
+		    
+		  </div>
+
+	    <% }) %>
+
+	    </div>
+
+</div>       
+
+<div class="img wrapper" style="margin-left:73px;">
+
+      <img class="img-responsive" src="https://s-media-cache-ak0.pinimg.com/originals/8a/7e/18/8a7e18810dcbd43529b11a4c75f7dcff.jpg">
+
+	  <a href="/review" class="post-type"> ARTHUR MITCHELL | MARCH 4, 2017 </a>
+
+	   <div class="overlay caption">
+		 <a href="/blog/<%= blog._id %>"><h1 style="margin-bottom: 40px;"><span style="color: #f44336;">Clannad</span> - 2007 Review</h1></a>
+	   </div>
+ </div>
+
+ </div>
+
+
+ <div class="container">
+
+        <a href="/blog" class="post-detail trending" style="word-spacing: 2px;">REVISITED - REVIEWS & OPINIONS</a>
+
+	    <div class="row">
+
+	    	<% revisited.forEach(function(revisited,index) { %>
+	    	
+	    	  <div class="col-md-4 col-sm-6 blog-section">
+		  		    
+			    <div class="thumbnail">
+			      <div class="img">
+			        <a href="#" class="sub-category">5 CENTIMETRES PER SECOND</a>
+			        <!-- <a href="#" class="sub-category">OPINION</a> -->
+			    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><img src="<%= revisited.image %>"></a>
+			    	<!-- <a href="/blog/<%= blog._id %>"><h3><%= revisited.title %></h3></a> -->
+			      </div>	
+			    </div>
+
+			    <div class="caption">
+			    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><%= revisited.title %></h3></a> -->
+			    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;">5 Centimetres Per Second</span> : Quotes To Remember From This Epic Movie</h3></a> -->
+			    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;font-size: 17px;">( OPINION )</span>  Quotes To Remember From This Epic Movie</h3></a>
+			    </div>
+
+			    <span><em>By <a class="author" href="/author/<%= revisited.author %>"><%= revisited.author %></a> on <%= revisited.date %></em></span><br><br>
+
+		    <% }) %>	
+
+		    </div>   
+	    	
+	    	<div class="col-md-4 col-sm-6 blog-section">
+		  		    
+		    <div class="thumbnail">
+		      <div class="img">
+		        <a href="#" class="sub-category">Cowboy Bebop</a>
+		        <!-- <a href="#" class="sub-category">REVIEW</a> -->
+		    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><img src="https://images3.alphacoders.com/328/32829.jpg"></a>
+		      </div>	
+		    </div>
+
+		    <div class="caption">
+		    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;">[Review]</span> : Whatever Happens , Happens</h3></a> -->
+		    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"> <h3>Cowboy Bebop : Whatever Happens , Happens</h3></a> -->
+		    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;font-size: 17px;">( REVIEW )</span>  Every good movie you've ever seen in one show. </h3></a>
+		    </div>
+
+
+		    <span><em>By <a class="author" href="/author/<%= revisited.author %>">Josh Steele</a> on March 31, 2017</em></span><br><br>
+
+		    </div>
+
+	    	<div class="col-md-4 col-sm-6 blog-section">
+		  		    
+		    <div class="thumbnail">
+		      <div class="img">
+		        <a href="#" class="sub-category">Dragon Ball Z</a>
+		        <!-- <a href="#" class="sub-category">OPINION</a> -->
+		    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><img src="https://images2.alphacoders.com/564/564835.jpg"></a>
+		      </div>	
+		    </div>
+
+		    <div class="caption">
+		    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;">[Opinion]</span> : 15 times Dragon Ball Z made us proud fans</h3></a> -->
+		    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3>Dragon Ball Z : 15 Times It Made Us Proud Fans</h3></a> -->
+		    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;font-size: 17px;">( REVIEW )</span>  15 Times It Made Us Proud Fans</h3></a>
+		    </div>
+
+		    <span><em>By <a class="author" href="/author/<%= revisited.author %>">Francesco Luchetta</a> on March 24, 2017</em></span><br><br>	   
+
+            </div>      
+	    	
+	    	<div class="col-md-4 col-sm-6 blog-section">
+		  		    
+			    <div class="thumbnail">
+			      <div class="img">
+			        <a href="#" class="sub-category">Erased</a>
+			        <!-- <a href="#" class="sub-category">REVIEW</a> -->
+			    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><img src="https://images5.alphacoders.com/692/692036.png"></a>
+			    	<!-- <a href="/blog/<%= blog._id %>"><h3><%= revisited.title %></h3></a> -->
+			      </div>	
+			    </div>
+
+			    <div class="caption">
+			    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;">[Review]</span> : Some of the best animations you'll ever see</h3></a> -->
+			    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3>Erased : Some of the best animations you'll ever see</h3></a> -->
+			    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;font-size: 17px;">( REVIEW )</span>  Some of the best animations you'll ever see </h3></a>
+			    </div>
+
+			    <span><em>By <a class="author" href="/author/<%= revisited.author %>">Richard Hendricks</a> on April 17, 2017</em></span><br><br>  
+
+            </div>  
+
+            <div class="col-md-4 col-sm-6 blog-section">
+		  		    
+			    <div class="thumbnail">
+			      <div class="img">
+			        <a href="#" class="sub-category">Clannad : After Story</a>
+			        <!-- <a href="#" class="sub-category">REVIEW</a> -->
+			    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><img src="http://wallpapers-best.com/uploads/posts/2015-10/19_clannad.jpg"></a>
+			    	<!-- <a href="/blog/<%= blog._id %>"><h3><%= revisited.title %></h3></a> -->
+			      </div>	
+			    </div>
+
+			    <div class="caption">
+			    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;">[Review]</span> : A fantastic comedy / drama that caters for all</h3></a> -->
+			    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3>Clannad : After Story - A fantastic comedy / drama that caters for all</h3></a> -->
+			    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;font-size: 17px;">( REVIEW )</span>  A fantastic comedy / drama that caters for all</h3></a>
+			    </div>
+
+			    <span><em>By <a class="author" href="/author/<%= revisited.author %>">Josh Steele</a> on April 14, 2017</em></span><br><br>  
+
+            </div>    
+
+
+            <div class="col-md-4 col-sm-6 blog-section">
+		  		    
+			    <div class="thumbnail">
+			      <div class="img">
+			        <a href="#" class="sub-category">The Garden of Words</a>
+			        <!-- <a href="#" class="sub-category">REVIEW</a> -->
+			    	<a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><img src="http://cdn.wallpapersafari.com/69/76/pSb80Z.jpg"></a>
+			    	<!-- <a href="/blog/<%= blog._id %>"><h3><%= revisited.title %></h3></a> -->
+			      </div>	
+			    </div>
+
+			    <div class="caption">
+			    	<!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;">[Review]</span> : No words That can describe this movie</h3></a> -->
+			    	 <!-- <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3>The Garden of Words : No words That can describe this movie</h3></a>  -->
+			    	 <a href="/revisited/<%= revisited._id %>/<%= revisited.title %>"><h3><span style="color: #dc4225;font-size: 17px;">( REVIEW )</span>   No words That can describe this movie</h3></a>
+			    </div>
+
+			    <span><em>By <a class="author" href="/author/<%= revisited.author %>">AS Staff</a> on April 24, 2017</em></span><br><br>  
+
+            </div>    
+  
+
+        </div>
+
+        <div class="row" style="margin-left : -32px;">
+              <div class="img wrapper">
+
+              <img class="img-responsive" src="https://images8.alphacoders.com/737/thumb-1920-737151.png">
+              <a href="/revisited" class="post-type"><i class="fa fa-certificate" style="padding-right: 6px;font-size: 12px;" aria-hidden="true"></i>REVISITED (REVIEW) | HIGHLIGHT</a>
+  
+		      <div class="overlay caption">
+
+	          <a href="/revisited"><h1><span style="color : #f44336;">Your Name</span> ( 2016 Review ) : Once seen, never forgotten - truly magnificent</h1></a>
+		        <span class="featured-author" ><em><a class="author" href="#">Arthur Mitchell </a> | MARCH 4, 2017  %></em></span>
+		        
+		      </div>
+	         </div>
+
+	</div>
+
+</div>
+
+
+<% include partials/footer %>

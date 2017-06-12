@@ -1,0 +1,151 @@
+	    	<!-- <% if ( index != 0 && (blog.featured == "no" ) ) { %> -->
+<!-- <% }  if ( index == 0 && blog.featured == "yes" ) { %> -->
+<!-- <% } %> -->
+
+
+		 
+	    <!-- <% }) %> -->
+
+  <div class="container" style="margin-left : 10px;">
+	<a style="margin-left: -17px;" href="/news" class="post-detail trending">NEWS</a>
+
+	<% news.forEach(function(news,index) { %>
+
+	 <div class="row" style="width : 80%;">
+        <div class="thumbnail" style="float: left;margin-right: 20px;margin-top: 40px;">
+		      <div class="img">
+		        <!-- <a href="#" class="sub-category">TV</a> -->
+		    	<a href="/news/<%= news._id %>/<%= news.title %>"><img src="<%= news.image %>"></a>
+		    	<!-- <a href="/news/<%= news._id %>"><h2><%= news.title %></h2></a> -->
+		      </div>	
+		 </div>
+
+		    <div class="caption" style="margin-top: 40px;">
+		    	<a href="/news/<%= news._id %>/<%= news.title %>"><h1 style="text-align: left;font-size: 32px;font-weight:900;overflow: hidden;"><%= news.title %></h1></a>
+		    </div>
+
+		    <div class="relative" style="font-size: 14px;margin-top: 10px;">
+		        <span style="color: #333333;"> <a class="author" href="/author/<%= news.author %>"><%= news.author %></a> | <%= news.date %></span>
+			    <p style="font-size: 14px;"><%- news.body.substring(0,150); %></p>
+			    <!-- <div class="absolute"></div> -->
+			    
+			</div> 
+
+
+     </div>
+     <% }) %>
+
+</div>
+
+
+
+<% featuredBlogs.forEach(function(featured,index) { %>
+	    	  <div class="row">
+              <div class="img wrapper">
+
+              <img class="img-responsive" src="<%= featured.image %>">
+		      <a href="/blog" class="post-type"><i class="fa fa-certificate" style="padding-right: 6px;font-size: 12px;" aria-hidden="true"></i>BLOG | HIGHLIGHT</a>
+  
+		      <div class="overlay caption">
+
+	          <a href="/blog/<%= featured._id %>/<%= featured.title %>"><h1> <%= featured.title %></h1></a>
+		        <span class="featured-author" ><em><a class="author" href="#"><%= featured.author %></a> | <%= featured.date %></em></span>
+		        
+		      </div>
+	         </div>
+
+	    	<% }) %>
+
+<div class="col-md-3 col-md-offset-8">
+
+		 <div class="related-posts" style="margin-right: -100px;margin-top: -1250px;">
+		 <h2 class="trending">TRENDING</h2>
+			<% latest.forEach(function(latest,index) { %>
+
+			  <div class="individual-related">
+			    <div class="thumbnail-related">
+			      <div class="img">
+			    	<a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><img class="img-responsive" src="<%= latest.image %>"></a>
+			    	<a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><h3><%= latest.title %></h3></a>
+			      </div>
+			    </div>
+
+			    <div class="caption-related">
+			    	<!-- <a href="/<%= latest.postType %>/<%= latest.referenceId %>"><h3><%= latest.title %></h3></a> -->
+			    </div>
+			  </div>
+			    
+			<% }) %>
+		 </div>
+
+		</div>    
+    
+
+<!-- //FEATURED NEWS  -->
+
+<% featuredNews.forEach(function(featured,index) { %>
+     
+         <div class="col-md-3 col-md-offset-8 news-section-laptop">
+         	
+         	<% if( index == 0 ) { %>
+			<div class="container" style="margin-left : 33px;">
+				<div style="height : 441px;width :356px;margin-top : -990px;">
+					<div class="img">
+						<a href="/review" class="post-type"><i class="fa fa-certificate" style="padding-right: 6px;font-size: 12px;" aria-hidden="true"></i>NEWS | HIGHLIGHT</a>
+						<img class="img-responsive" src="<%= featured.image %>">
+						<a href="#"><h3 style="font-size : 32px;font-weight:900;left:20px;right:20px;bottom : 20px;"><%= featured.title %></h3></a>
+					</div>
+				</div> 
+			</div>
+		
+			<% } else { %>
+		
+		<div class="container" style="margin-left : -150px;">
+			<div style="height : 441px;width :356px;margin-top : -510px;">
+				<div class="img">
+					<a href="/review" class="post-type"><i class="fa fa-certificate" style="padding-right: 6px;font-size: 12px;" aria-hidden="true"></i>NEWS | HIGHLIGHT</a>
+					<img class="img-responsive" src="<%= featured.image %>">
+					<a href="#"><h3 style="font-size : 32px;font-weight:900;left:20px;right:20px;bottom : 20px;"><%= featured.title %></h3></a>
+				</div>
+			</div> 
+		</div>
+		
+	  	</div>
+		
+	 <% }}) %>
+
+
+		<!-- MOBILE -->
+
+<div class="container" style="display:none;">
+
+        <a href="/news" class="post-detail trending">NEWS</a>
+
+	    <div class="row">
+
+	    	<% news.forEach(function(news,index) { %>
+
+
+		  <div class="col-md-4 col-sm-6 news-section">
+		  		    
+		    <div class="thumbnail news-thumbnail">
+		      <div class="img">
+		    	<a href="/news/<%= news._id %>/<%= news.title %>"><img src="<%= news.image %>"></a>
+		      </div>	
+		    </div>
+		    
+		    <span class="for-mobile"><%= news.author %> | <%= news.date %></span>
+
+		    <div class="caption">
+		    	<a href="/news/<%= news._id %>/<%= news.title %>"><h3 style="color: #333333;"><%= news.title %></h3></a>
+		    </div>
+
+		    <span><em>By <a class="author" href="/author/<%= news.author %>"><%= news.author %></a> on <%= news.date %></em></span><br><br>
+
+		  </div>
+
+	    <% }) %>
+
+	    </div>
+
+</div>              

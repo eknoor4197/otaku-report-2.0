@@ -1,0 +1,100 @@
+<% include partials/header %>
+
+<br><br><br><br>
+
+<div class="container">
+
+  <div class="row">
+
+	<h1 id="main-review-title"><%= review.title %></h1>
+
+	<div class="col-md-9">
+
+	<h2 class="review-summary" ><em><%= review.summary %></em></h2>
+
+    <span style="letter-spacing: 1px; font-size: 16px;"><em>By <a class="author" href="#"><%= review.author %></a> on <%= review.date %></em></span><br><br>
+
+	<div id="main-review-img"><img src="<%= review.image %>"></div>
+
+	<div class="social-share">  
+      <a id="fb-share" href="http://www.facebook.com/share.php?u=[URL]&title=[TITLE]"><i class="fa fa-facebook"></i>SHARE</a>
+      <a id="twitter-share" href="http://twitter.com/intent/tweet?status=<%=fullUrl %>"><i class="fa fa-twitter" aria-hidden="true"></i>TWEET</a>
+      <a id="pin-share" href="http://pinterest.com/pin/create/bookmarklet/?media=[MEDIA]&url=[URL]&is_video=false&description=[TITLE]"><i class="fa fa-pinterest" aria-hidden="true"></i>PIN</a>
+    </div>  
+
+      <div id="main-review-content"><%- review.body %></div>
+
+	<a class="ui secondary basic button" href="/review/<%= review._id %>/<%= review.title %>/edit">Edit</a>
+
+	<form action="/review/<%= review._id %>/<%= review.title %>?_method=DELETE" method="POST">
+		  <button class="ui secondary basic button">Delete</button>
+
+	</form>
+
+
+    </div>
+
+     <div class="col-md-3">
+
+		 <div class="related-posts-reviews">
+		 <h2 class="trending">TRENDING</h2>
+			<% latest.forEach(function(latest,index) { %>
+
+			  <div class="individual-related">
+			    <div class="thumbnail-related">
+			      <div class="img">
+			    	<a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><img class="img-responsive" src="<%= latest.image %>"></a>
+			    	<a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><h3><%= latest.title %></h3></a>
+			      </div>
+			    </div>
+
+			    <div class="caption-related">
+			    	<!-- <a href="/<%= latest.postType %>/<%= latest.referenceId %>"><h3><%= latest.title %></h3></a> -->
+			    </div>
+			  </div>
+			    
+			<% }) %>
+		 </div>
+
+		</div>
+
+    </div>
+
+    <div id="container-more">
+
+		    <h2 id="more"><em>MORE FROM ANIME SQUARE</em></h2>
+
+		    <% more.forEach(function(latest,index) { %>
+
+		    <div class="col-md-4 col-sm-6 more-section" >
+		  		    
+			     <div class="thumbnail">
+			      <div class="img">
+			        <a href="#" class="sub-category">TV</a>
+			    	<a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><img src="<%= latest.image %>"></a>
+			    	<!-- <a href="/<%= latest.postType %>/<%= latest.referenceId %>"><h3><%= latest.title %></h3></a> -->
+			      </div>	
+			    </div>
+
+			    <div class="caption">
+			    	<a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><h3><%= latest.title %></h3></a>
+			    </div>
+
+			    <span><em>By <a class="author" href="/author/<%= latest.author %>"><%= latest.author %></a> on <%= latest.date %></em></span><br><br>
+
+		    </div> 
+
+	    <% }) %>
+
+	    </div>
+
+	
+	<!-- <% review.comments.forEach(function(comment) { %>
+	  <p>
+	    <strong><%= comment.author %></strong> - <%= comment.text %>
+	  </p>
+	<% }) %> -->
+
+</div>
+
+<% include partials/footer %>

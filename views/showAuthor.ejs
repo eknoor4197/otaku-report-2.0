@@ -1,0 +1,52 @@
+<% include partials/header %>
+
+<div class="author-page">
+<div class="row">
+  <div class="col-md-5">
+	<div class="author-img">
+		<img src="https://randomuser.me/api/portraits/men/51.jpg">
+    </div>
+  </div>	
+
+	<div class="col-md-6 author-name">
+	  <h1><%= name %></h1>
+	  <!-- <div class="author-info"> -->
+	    <!-- <p>One-Punch Man is an ongoing Japanese superhero parody webcomic created by an author using the pseudonym One which began publication in early 2009.</p> -->
+	  <!-- </div> -->
+	</div>
+</div>
+  	
+
+<div>
+	<% latest.forEach(function(latest) { %>
+	  <div class="col-md-8 col-sm-6">
+
+	        <hr style="width: 100%;border-top: 1px solid #ccc">
+		    
+		    <div class="thumbnail-author">
+		      <div class="img">
+		    	<a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><img class="img-responsive author-page-img" src="<%= latest.image %>"></a>
+		      </div>	
+		    </div>
+
+		    <div class="author-page-caption">
+		    	<a href="/<%= latest.postType %>/<%= latest.referenceId %>/<%= latest.title %>"><h2><%= latest.title %></h2></a>
+		    </div>
+
+		    <div class="relative">
+		        <p><%- latest.body.substring(0,600).split('.',1)[0]; %>.</p>
+		        <!-- <p><%- latest.body.substring(0, latest.body.indexOf('.')); %>.</p> -->
+		    	<!-- <div class="absolute"></div> -->
+		    </div>
+
+		    <p><%= latest.date %></p>
+
+		    <!-- <hr style="width: 100%;border-top: 1px solid #ccc"> -->
+		    
+	  </div>
+	<% }) %>
+</div>
+
+</div>
+
+<% include partials/header %>

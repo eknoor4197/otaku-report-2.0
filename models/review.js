@@ -5,7 +5,7 @@ var reviewSchema = new mongoose.Schema({
 	image : String,
 	title : String,
 	body : String,
-	summary : String,
+	intro : String,
 	author : String,
 	date : String,
 	rating : String,

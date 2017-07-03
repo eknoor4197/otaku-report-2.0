@@ -79,7 +79,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/animeknight");
+mongoose.connect("mongodb://localhost/otakureport");
 
 app.set("view engine","ejs");
 
@@ -124,7 +124,7 @@ app.get('/', function (req, res,next) {
 			next();
 		} else {
 			res.locals.latest = allLatest;
-			res.locals.title = "Anime Square";
+			res.locals.title = "Otaku Report";
 			// res.render("landing", {blog : allBlogs , moment : now});
 			next();
 		}
@@ -312,7 +312,7 @@ app.get("/blog/:id/:titleURL", function(req,res,next) {
 		} else {
 			// next();
 		  res.locals.blog = foundBlog;
-          res.locals.title = foundBlog.title + " | Anime Square";
+          res.locals.title = foundBlog.title + " | Otaku Report";
 		  res.locals.blog.body = marked( foundBlog.body );
 		  next();
 		}
@@ -418,7 +418,7 @@ app.get("/review" , function(req,res) {
 		if(err) {
 			console.log(err);
 		} else {
-			res.render("review", {review : allReviews, title : "Reviews | Anime Square"});
+			res.render("review", {review : allReviews, title : "Reviews | Otaku Report"});
 		}
 	})
 })
@@ -460,7 +460,7 @@ app.get("/review/:id/:title", function(req,res,next) {
 			next();
 		} else {
 			res.locals.review = foundReview;
-			res.locals.title = foundReview.title + " | Anime Square";
+			res.locals.title = foundReview.title + " | Otaku Report";
 			res.locals.review.body = marked( foundReview.body );
 			next();
 			// res.render("showReview", {review : foundReview});
@@ -553,7 +553,7 @@ app.get("/news", function(req,res) {
 		if(err) {
 			console.log(err);
 		} else {
-			res.render("news", {news : allNews, moment : now, momentNow : currentDateTime, title : "News | Anime Square"});
+			res.render("news", {news : allNews, moment : now, momentNow : currentDateTime, title : "News | Otaku Report"});
 		}
 	})
 })
@@ -595,7 +595,7 @@ app.get("/news/:id/:title", function(req,res,next) {
 		} else {
 			next();
 			res.locals.news = foundNews;
-			res.locals.title = foundNews.title + " | Anime Square";
+			res.locals.title = foundNews.title + " | Otaku Report";
 			res.locals.news.body = marked( foundNews.body );
 		}
 	})
@@ -688,7 +688,7 @@ app.get("/revisited", function(req,res) {
 		if(err) {
 			console.log(err);
 		} else {
-			res.render("revisited", {revisited : allRevisited, title : "Revisited | Anime Square"});
+			res.render("revisited", {revisited : allRevisited, title : "Revisited | Otaku Report"});
 		}
 	})
 })
@@ -731,7 +731,7 @@ app.get("/revisited/:id/:title", function(req,res,next) {
 		} else {
 			// next();
 		  res.locals.revisited = foundRevisited;
-		   res.locals.title = foundRevisited.title + " | Anime Square";
+		   res.locals.title = foundRevisited.title + " | Otaku Report";
 		  res.locals.revisited.body = marked( foundRevisited.body );
 		  next();
 		}
@@ -818,7 +818,7 @@ app.delete("/revisited/:id/:title", function(req,res) {
 
 //AUTH ROUTES
 app.get("/register", function(req,res) {
-	res.locals.title = "Anime Square";
+	res.locals.title = "Otaku Report";
 	res.render("register",res.locals);
 });
 
@@ -838,7 +838,7 @@ app.post("/register", function(req,res) {
 
 //LOGIN FORM
 app.get("/login", function(req,res) {
-	res.locals.title = "Anime Square";
+	res.locals.title = "Otaku Report";
 	res.render("login", res.locals);
 })
 
@@ -869,12 +869,12 @@ app.get("/author/:name", function(req,res) {
 
 // ABOUT
 app.get("/about",function(req,res) {
-	res.render("about",{title : "About Us | Anime Square"});
+	res.render("about",{title : "About Us | Otaku Report"});
 })
 
 // CONTACT
 app.get("/contact",function(req,res) {
-	res.render("contact",{title : "Contact Us | Anime Square"});
+	res.render("contact",{title : "Contact Us | AOtaku Report"});
 })
 
 app.get("/admin", isLoggedIn ,  function(req,res) {
@@ -884,7 +884,7 @@ app.get("/admin", isLoggedIn ,  function(req,res) {
 			console.log(err);
 		} else {
 			res.locals.latest = allLatest;
-			res.locals.title = "Anime Square";
+			res.locals.title = "Otaku Report";
 			res.render("admin", res.locals);
 		}
 	})

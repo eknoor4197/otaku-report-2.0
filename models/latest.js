@@ -9,7 +9,7 @@ var latestSchema = new mongoose.Schema({
     title : String,
     body : String,
     rating : String,
-    summary : String,
+    intro : String,
     author : String,
     date: String,
     featured : String,

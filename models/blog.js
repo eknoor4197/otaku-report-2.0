@@ -6,11 +6,11 @@ var blogSchema = new mongoose.Schema({
 	image : String,
 	title : String,
 	body : String,
-   summary : String,
-   author : String,   
-   date : String,
-   titleURL : String, 
-   featured : String,
+   	intro : String,
+   	author : String,   
+   	date : String,
+   	titleURL : String, 
+   	featured : String,
 	created : {type : Date, default : Date.now()},
 	comments: [
       {

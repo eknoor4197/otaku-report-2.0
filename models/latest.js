@@ -12,6 +12,8 @@ var latestSchema = new mongoose.Schema({
     summary : String,
     author : String,
     date: String,
+    featured : String,
+    titleURL : String,
 	created : {type : Date, default : Date.now()}
 });
 

@@ -39,9 +39,9 @@
 
 			<% if( currentUser && ( currentUser.username == "eknoor" || currentUser.username == blog.author) ) { %>
 
-			<a class="ui secondary basic button" href="/blog/<%= blog._id %>/<%= blog.title %>/edit">Edit</a>
+			<a class="ui secondary basic button" href="/blog/<%= blog._id %>/<%= blog.titleURL %>/edit">Edit</a>
 
-			<form action="/blog/<%= blog._id %>/<%= blog.title %>?_method=DELETE" method="POST">
+			<form action="/blog/<%= blog._id %>/<%= blog.titleURL %>?_method=DELETE" method="POST">
 				<button class="ui secondary basic button">Delete</button>
 
 			</form>
@@ -52,7 +52,7 @@
 
 		  <div id="container-more">
 
-		    <h2 id="more"><em>MORE FROM ANIME SQUARE</em></h2>
+		    <h2 id="more" class="trending post-detail"><em>MORE FROM ANIME SQUARE</em></h2>
 
 		    <% more.forEach(function(latest,index) { %>
 

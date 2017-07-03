@@ -1,8 +1,7 @@
 <% include partials/header %>
 
-<br><br><br><br>
 
-<div class="container">
+<div class="container news-container">
 
 <div class="row">
 
@@ -12,9 +11,9 @@
 
 	<!-- <h1 id="main-news-title"><%= news.title %></h1> -->
 
-	<h2 class="news-summary" style=""><em><%= news.summary %></em></h2>
+	<h2 class="news-summary"><em><%= news.summary %></em></h2>
 
-	<span class="news-author">By <a class="author" href="#"><%= news.author %></a> on <%= news.date %></span><br><br>
+	<span class="news-author">By <a class="author" href="/author/<%= news.author %>"><%= news.author %></a> on <%= news.date %></span><br><br>
 
 	<div id="main-news-img"><img src="<%= news.image %>"></div>
 
@@ -68,8 +67,8 @@
     </div>
 
      <div id="container-more">
-
-		    <h2 id="more"><em>MORE FROM ANIME SQUARE</em></h2>
+     
+		    <h2 id="more" class="trending post-detail"><em>MORE FROM ANIME SQUARE</em></h2>
 
 		    <% more.forEach(function(latest,index) { %>
 

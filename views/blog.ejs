@@ -1,9 +1,15 @@
 <% include partials/header %>
 
+<!-- <div id="blog-page" class="jumbotron">
+	<h1>Blog</h1>
+</div> -->
+
 <div id="blog-page" class="jumbotron">
-	<h1>The Anime Knight Blog!</h1>
-    <p>The most up-to-date Anime Community!</p>
+	<a href="/blog" class="post-type">BLOG</a>
+	<!-- <h1>BLOG</h1> -->
 </div>
+
+<div class="blog-all">
 
 <div class="container">
 		
@@ -14,7 +20,7 @@
 	      
 		  <div class="col-md-4 col-sm-6">
 		    <div style="margin-bottom: -20px;"><em><%= blog.date %></em></div>
-		    <div style="margin-bottom: -20px;margin-right:50px;float: right;letter-spacing: 0.7px;"><a class="author" href="#"><em><%= blog.author %></em></a></div>
+		    <div style="margin-bottom: -20px;margin-right:25px;float: right;letter-spacing: 0.7px;"><a class="author" href="#"><em><%= blog.author %></em></a></div>
 		    
 		    
 		    <div class="thumbnail">
@@ -33,12 +39,16 @@
 			    <p><%- blog.body.substring(0,275); %></p>
 			    <div class="absolute"></div>
 			</div> -->
+
+			<br>
 		    
 		  </div>
 
 	    <% }) %>
 
 	    </div>
+
+</div>
 
 </div>
 

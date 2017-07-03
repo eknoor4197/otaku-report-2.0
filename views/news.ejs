@@ -1,9 +1,11 @@
 <% include partials/header %>
 
-<div id="blog-page" class="jumbotron">
-	<h1>The Anime Knight News!</h1>
-    <p>The most up-to-date Anime Community!</p>
+<div id="news-page" class="jumbotron">
+	<a href="/news" class="post-type">NEWS</a>
+	<!-- <h1>NEWS</h1> -->
 </div>
+
+<div class="news-all">
 
 <div class="container">
 		
@@ -13,6 +15,7 @@
 
 	      
 		  <div class="col-md-4 col-sm-6">
+
 		    <div style="margin-bottom: -20px;"><em><%= news.date %></em></div>
 		    <div style="margin-bottom: -20px;margin-right:50px;float: right;"><a class="author" href="#"><em><%= news.author %></em></a></div>
 		    
@@ -24,12 +27,18 @@
 		    <div class="caption">
 		    	<a href="/news/<%= news._id %>/<%= news.title %>"><h3><%= news.title %></h3></a><br>
 		    </div>
+
+		    <br>
 		    
 		  </div>
+
+		  
 
 	    <% }) %>
 
 	    </div>
+
+</div>
 
 </div>
 

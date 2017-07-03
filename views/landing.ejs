@@ -8,8 +8,8 @@
   	</ul>
 </div>
 
-<br><br><br><br> -->
-
+<br><br><br><br>
+ -->
 		   
 
 		<div id="landing">
@@ -63,7 +63,84 @@
 
         </div>
 
-<div class="container">
+        <div class="container news-section-laptop-container">
+	
+	<a href="/news" class="post-detail trending news-section-laptop">NEWS</a>
+  	
+	<!--<a href="/news" class="post-detail">NEWS</a>-->
+
+	<% news.forEach(function(news,index) { %>
+
+		<div class="row news-section-laptop">
+	 	
+	         <div class="thumbnail">
+			      <div class="img">
+			      	<a href="/news/<%= news._id %>/<%= news.title %>"><img src="<%= news.image %>"></a>
+			      </div>	
+			 </div>
+	
+			 <div class="caption">
+			 	<a href="/news/<%= news._id %>/<%= news.title %>"><h1><%= news.title %></h1></a>
+			 </div>
+	
+			 <div class="relative" >
+			 	<span class="author-date"><a class="author" href="/author/<%= news.author %>"><%= news.author %></a> | <%= news.date %></span>
+			 	<!-- <p><%- news.body.substring(0,150); %></p> -->
+			 	<p><%- news.body.substring(0,600).split('.',1)[0]; %>.</p>
+			 	<!-- <p><%- news.body %></p> -->
+		     </div> 
+
+        </div>
+
+        <hr class="style7">
+        
+     
+    <% }) %>
+     
+     <% featuredNews.forEach(function(featured,index) { %>
+     
+     <% if( index == 0 ) { %>
+     
+         <div class="col-md-3 col-md-offset-8 news-section-laptop">
+         	
+			<div class="container" style="margin-left : 689px;">
+				<div style="height : 441px;width :336px;margin-top : -976px;">
+					<div class="img featured-news-img">
+						<a href="/review" class="post-type"><i class="fa fa-certificate" aria-hidden="true"></i>NEWS | HIGHLIGHT</a>
+						<a href="/news/<%= featured._id %>/<%= featured.title %>"><img class="img-responsive" src="<%= featured.image %>"></a>
+						<a href="/news/<%= featured._id %>/<%= featured.title %>"><h3 class="featured-news-caption" ><%= featured.title %></h3></a>
+						<h3 class="featured-news-author" ><em>By <%= featured.author %> on <%= featured.date %></em></h3>
+					</div>
+				</div> 
+			</div>
+		
+	  	</div>
+	  	
+	  	<% } else { %>
+	  	
+	  	<div class="col-md-3 col-md-offset-8 news-section-laptop">
+         	
+			<div class="container" style="margin-left : 689px;">
+				<div style="height : 441px;width :336px;margin-top : -495px;">
+					<div class="img featured-news-img">
+						<a href="/review" class="post-type"><i class="fa fa-certificate" aria-hidden="true"></i>NEWS | HIGHLIGHT</a>
+						<a href="/news/<%= featured._id %>/<%= featured.title %>"><img class="img-responsive" src="<%= featured.image %>"></a>
+						<!-- <a href="#"><h3 style="font-size : 32px;font-weight:900;left:20px;right:20px;bottom : 20px;"><%= featured.title %></h3></a> -->
+						<a href="/news/<%= featured._id %>/<%= featured.title %>"><h3 class="featured-news-caption" ><%= featured.title %></h3></a>
+						<h3 class="featured-news-author" ><em>By <%= featured.author %> on <%= featured.date %></em></h3>
+					</div>		
+	  			</div>
+			</div>
+
+		</div>
+
+	 <% }}) %>
+     
+
+
+</div>
+
+<!-- <div class="container">
 
         <a href="/news" class="post-detail trending">NEWS</a>
 
@@ -77,26 +154,26 @@
 		    <div class="thumbnail">
 		      <div class="img">
 		        <!-- <a href="#" class="sub-category">TV</a> -->
-		    	<a href="/news/<%= news._id %>/<%= news.title %>"><img src="<%= news.image %>"></a>
+		    	<!-- <a href="/news/<%= news._id %>/<%= news.title %>"><img src="<%= news.image %>"></a> -->
 		    	<!-- <a href="/news/<%= news._id %>"><h2><%= news.title %></h2></a> -->
-		      </div>	
-		    </div>
+		      <!-- </div>	 -->
+		    <!-- </div> -->
 
-		    <div class="caption">
+		    <!-- <div class="caption">
 		    	<a href="/news/<%= news._id %>/<%= news.title %>"><h3 style="color: #333333;"><%= news.title %></h3></a>
 		    </div>
 
 		    <span><em>By <a class="author" href="/author/<%= news.author %>"><%= news.author %></a> on <%= news.date %></em></span><br><br>
 		    
-		  </div>
+		  </div> -->
 
-	    <% }) %>
+	    <!-- <% }) %> -->
 
 
 
-	    </div>
+	    <!-- </div> -->
 
-</div>       
+<!-- </div>   -->     
 
 	  
 
@@ -109,21 +186,26 @@
 
 	    	<% blog.forEach(function(blog,index) { %>
 	    	
-	    	  <div class="col-md-4 col-sm-6 blog-section">
+	    	<div class="col-md-4 col-sm-6 blog-section">
+
+	    	<div style="margin-bottom: -20px;"><em><%= blog.date %></em></div>
+		    <div style="margin-bottom: -20px;margin-right:-30px;float: right;letter-spacing: 0.7px;"><a class="author" href="/author/<%= blog.author %>"><em><%= blog.author %></em></a></div>
 		  		    
 		    <div class="thumbnail">
 		      <div class="img">
 		        <a href="#" class="sub-category">TV</a>
-		    	<a href="/blog/<%= blog._id %>/<%= blog.title %>"><img src="<%= blog.image %>"></a>
+		    	<a href="/blog/<%= blog._id %>/<%= blog.titleURL %>"><img src="<%= blog.image %>"></a>
 		    	<!-- <a href="/blog/<%= blog._id %>"><h3><%= blog.title %></h3></a> -->
 		      </div>	
 		    </div>
 
 		    <div class="caption">
-		    	<a href="/blog/<%= blog._id %>/<%= blog.title %>"><h3><%= blog.title %></h3></a>
+		    	<a href="/blog/<%= blog._id %>/<%= blog.titleURL %>"><h3><%= blog.title %></h3></a>
 		    </div>
 
-		    <span><em>By <a class="author" href="/author/<%= blog.author %>"><%= blog.author %></a> on <%= blog.date %></em></span><br><br>
+		    <br><br>
+
+		    <!-- <span><em>By <a class="author" href="/author/<%= blog.author %>"><%= blog.author %></a> on <%= blog.date %></em></span><br><br> -->
 
 		     <!-- <span><%= blog.created.toDateString(); %></span> -->
       
@@ -146,7 +228,7 @@
 		      <div class="overlay caption">
 
 	          <a href="/blog/<%= featured._id %>/<%= featured.title %>"><h1> <%= featured.title %></h1></a>
-		        <span class="featured-author" ><em><a class="author" href="#"><%= featured.author %></a> | <%= featured.date %></em></span>
+		        <span class="featured-author" ><em><a class="author" href="/author/<%= blog.author %>"><%= featured.author %></a> | <%= featured.date %></em></span>
 		        
 		      </div>
 	         </div>
@@ -181,7 +263,7 @@
 		    	<a href="/review/<%= review._id %>/<%= review.title %>"><h3><%= review.title %></h3></a>
 		    </div>
 
-		    <span><em>By <a class="author" href="#"><%= review.author %></a> on <%= review.date %></em></span><br><br>
+		    <span><em>By <a class="author" href="/author/<%= review.author %>"><%= review.author %></a> on <%= review.date %></em></span><br><br>
 
 		    <!-- <span><%= review.created.toDateString(); %></span>
 
@@ -194,23 +276,26 @@
 
 	    <% }) %>
 
+	    <% featuredReviews.forEach(function(featured,index) { %>
+	    	  <div class="row">
+              <div class="img wrapper">
+
+              <img class="img-responsive" src="<%= featured.image %>">
+		      <a href="/review" class="post-type"><i class="fa fa-certificate" style="padding-right: 6px;font-size: 12px;" aria-hidden="true"></i>REVIEW | HIGHLIGHT</a>
+  
+		      <div class="overlay caption">
+
+	          <a href="/review/<%= featured._id %>/<%= featured.title %>"><h1> <%= featured.title %></h1></a>
+		        <span class="featured-author" ><em><a class="author" href="/author/<%= featured.author %>"><%= featured.author %></a> | <%= featured.date %></em></span>
+		        
+		      </div>
+	         </div>
+
+	    <% }) %>
+
 	    </div>
 
 </div>       
-
-<div class="img wrapper" style="margin-left:73px;">
-
-      <img class="img-responsive" src="https://s-media-cache-ak0.pinimg.com/originals/8a/7e/18/8a7e18810dcbd43529b11a4c75f7dcff.jpg">
-
-	  <a href="/review" class="post-type"> ARTHUR MITCHELL | MARCH 4, 2017 </a>
-
-	   <div class="overlay caption">
-		 <a href="/blog/<%= blog._id %>"><h1 style="margin-bottom: 40px;"><span style="color: #f44336;">Clannad</span> - 2007 Review</h1></a>
-	   </div>
- </div>
-
- </div>
-
 
  <div class="container">
 
@@ -366,6 +451,8 @@
 	         </div>
 
 	</div>
+
+</div>
 
 </div>
 

@@ -23,6 +23,7 @@ var Review = require("./models/review");
 var Revisited = require("./models/revisited");
 var Latest = require("./models/latest");
 var News = require("./models/news");
+// var Article = require("./models/article");
 
 var config = require('./oauth.js');
 
@@ -151,9 +152,8 @@ app.get('/', function (req, res,next) {
 		}
 
 	})
-
 },function (req, res,next) {
-  Review.find({}).sort([['_id', -1]]).limit(6).exec(function(err,allReviews) {
+  Review.find({featured : "no"}).sort([['_id', -1]]).limit(6).exec(function(err,allReviews) {
 				if(err) {
 					console.log(err);
 					next();
@@ -163,8 +163,19 @@ app.get('/', function (req, res,next) {
 					next();
 				}	
 	})
+},function (req, res,next) {
+  Review.find({featured : "yes"}).sort([['_id', -1]]).limit(1).exec(function(err,featuredReviews) {
+				if(err) {
+					console.log(err);
+					next();
+				} else {
+					res.locals.featuredReviews = featuredReviews;
+					// res.render("landing", res.locals);
+					next();
+				}	
+	})
 }, function (req, res,next) {
-  News.find({featured : "no"}).sort([['_id', -1]]).limit(6).exec(function(err,allNews) {
+  News.find({featured : "no"}).sort([['_id', -1]]).limit(4).exec(function(err,allNews) {
 				if(err) {
 					console.log(err);
 					next();
@@ -175,7 +186,7 @@ app.get('/', function (req, res,next) {
 				}	
 	})
 },function (req, res,next) {
-  News.find({featured : "yes"}).sort([['_id', -1]]).limit(4).exec(function(err,featuredNews) {
+  News.find({featured : "yes"}).sort([['_id', -1]]).limit(2).exec(function(err,featuredNews) {
 				if(err) {
 					console.log(err);
 					next();
@@ -217,7 +228,7 @@ app.get("/blog", function(req,res) {
 		if(err) {
 			console.log(err);
 		} else {
-			res.render("blog", {blog : allBlogs, moment : now,title:'Blog'});
+			res.render("blog", {blog : allBlogs, moment : now,title:'Blog | Nerd Culture'});
 		}
 	})
 })
@@ -272,7 +283,8 @@ app.post("/blog",isLoggedIn, function(req,res) {
 	        	author : newBlog.author,
 	        	date : newBlog.date,
 	            created : newBlog.created,
-	            featured : newBlog.featured
+	            featured : newBlog.featured,
+	            titleURL : newBlog.titleURL
 	        });
 	        res.redirect("/blog"); //success response 
 		}
@@ -291,7 +303,7 @@ app.post("/blog",isLoggedIn, function(req,res) {
 // 	})
 // })
 
-app.get("/blog/:id/:title", function(req,res,next) {
+app.get("/blog/:id/:titleURL", function(req,res,next) {
 	Blog.findById(req.params.id).populate("comments").exec(function(err,foundBlog) {
 		if(err) {
 			// next();
@@ -351,7 +363,7 @@ app.get("/blog/:id/:title/edit", function(req,res) {
 })
 
 //UPDATE BLOG
-app.put("/blog/:id/:title", function(req,res) {
+app.put("/blog/:id/:titleURL", function(req,res) {
 	// req.body.blog.body = req.sanitize(req.body.blog.body);
 	// var id = req.params.id;
 	Blog.findByIdAndUpdate(req.params.id, req.body.blog,{new: true}, function(err,updatedBlog) {
@@ -372,16 +384,17 @@ app.put("/blog/:id/:title", function(req,res) {
 	        	  updatedLatest.rating = updatedBlog.rating;
 	              updatedLatest.created = updatedBlog.created;
 	              updatedLatest.featured = updatedBlog.featured;
+	              updatedLatest.titleURL = updatedBlog.titleURL;
 	              updatedLatest.save(); 
 				} 
 			})
-			res.redirect("/blog/" + req.params.id + "/" + req.params.title);
+			res.redirect("/blog/" + req.params.id + "/" + req.params.titleURL);
 		}
 	})
 })
 
 //DELETE BLOG
-app.delete("/blog/:id/:title", function(req,res) {
+app.delete("/blog/:id/:titleURL", function(req,res) {
 	Blog.findByIdAndRemove(req.params.id,function(err) {
 		if(err) {
 			res.redirect("/blog");
@@ -400,7 +413,7 @@ app.delete("/blog/:id/:title", function(req,res) {
 // =================
 
 // REVIEW PAGE
-app.get("/review", function(req,res) {
+app.get("/review" , function(req,res) {
 	Review.find({}).sort([['_id', -1]]).exec(function(err,allReviews) {
 		if(err) {
 			console.log(err);
@@ -546,7 +559,7 @@ app.get("/news", function(req,res) {
 })
 
 //NEW NEWS - FORM
-app.get("/news/new", function(req,res) {
+app.get("/news/new", isLoggedIn , function(req,res) {
 	res.render("newNews" , { title : "New News" });
 })
 
@@ -565,7 +578,8 @@ app.post("/news",isLoggedIn, function(req,res) {
 	        	summary : newNews.summary,
 	        	author : newNews.author,
 	        	date : newNews.date,
-	            created : newNews.created
+	            created : newNews.created,
+	            featured : newNews.featured
 	        });
 	        res.redirect("/news"); //success response 
 		}
@@ -640,6 +654,7 @@ app.put("/news/:id/:title", function(req,res) {
 				updatedLatest.date = updatedNews.date;
 	        	updatedLatest.rating = updatedNews.rating;
 	            updatedLatest.created = updatedNews.created;
+	            updatedLatest.featured = updatedNews.featured;
 	            updatedLatest.save();
 				}
 			})
@@ -847,7 +862,7 @@ app.get("/author/:name", function(req,res) {
 		if(err) {
 			console.log(err);
 		} else {
-			res.render("showAuthor", { latest : allLatest , name : req.params.name, title : req.params.name + "Anime Square"});
+			res.render("showAuthor", { latest : allLatest , name : req.params.name, title : req.params.name + " | Nerd Culture"});
 		}
 	})
 })
@@ -855,6 +870,11 @@ app.get("/author/:name", function(req,res) {
 // ABOUT
 app.get("/about",function(req,res) {
 	res.render("about",{title : "About Us | Anime Square"});
+})
+
+// CONTACT
+app.get("/contact",function(req,res) {
+	res.render("contact",{title : "Contact Us | Anime Square"});
 })
 
 app.get("/admin", isLoggedIn ,  function(req,res) {

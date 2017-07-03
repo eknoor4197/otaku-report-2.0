@@ -1,5 +1,12 @@
 <% include partials/header %>
 
+<div id="review-page" class="jumbotron">
+	<a href="/review" class="post-type">REVIEWS</a>
+	<!-- <h1>BLOG</h1> -->
+</div>
+
+<div class="review-all">
+
 <div class="container">
 		
 	    <div class="row">
@@ -8,6 +15,9 @@
 
 
 		  <div class="col-md-4 col-sm-6">
+
+		    <div style="margin-bottom: -20px;"><em><%= review.date %></em></div>
+		    <div style="margin-bottom: -20px;margin-right:25px;float: right;letter-spacing: 0.7px;"><a class="author" href="#"><em><%= review.author %></em></a></div>
 		    
 		    <div class="thumbnail">
 		      <div class="img">
@@ -16,23 +26,27 @@
 		    </div>
 
 		    <div class="caption">
-		    	<a href="/review/<%= review._id %>/<%= review.title %>"><h2><%= review.title %></h2></a>
+		    	<a href="/review/<%= review._id %>/<%= review.title %>"><h3><%= review.title %></h3></a>
 		    </div>
 
-		    <span><em>By <a class="author" href="#"><%= review.author %></a> on <%= review.date %></em></span><br><br>
+		    <!-- <span><em>By <a class="author" href="#"><%= review.author %></a> on <%= review.date %></em></span><br><br> -->
 
 		    <!-- <span><%= review.created.toDateString(); %></span> -->
 
-		    <div class="relative">
-			    <p><%- review.body.substring(0,250); %></p>
-			    <div class="absolute"></div>
-			</div>
+		    <!-- <div class="relative"> -->
+			    <!-- <p><%- review.body.substring(0,250); %></p> -->
+			    <!-- <div class="absolute"></div> -->
+			<!-- </div> -->
+
+			<br>
 		    
 		  </div>
 
 	    <% }) %>
 
 	    </div>
+
+</div>
 
 </div>
 

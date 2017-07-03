@@ -31,6 +31,22 @@ $(document).ready(function() {
 
   }) 
 
+  $(".navbar").show();
+
+      $(function() {
+        $(window).scroll(function () {
+          if($(this).scrollTop() > 500) {
+            $(".navbar").height(65);
+            $(".navbar-default .navbar-brand").css("margin-top","7px");
+            $(".navbar-left, .navbar-right").css("margin-top","6px");
+          } else {
+            $(".navbar").height(75);
+            $(".navbar-default .navbar-brand").css("margin-top","15px");
+            $(".navbar-left, .navbar-right").css("margin-top","12px");
+          }
+        });
+  }) 
+
 var str = window.location.href;
 str = str.replace(/%20/g, "-");
 // window.location.href = str.replace(/%20/g, '-').toLowerCase();

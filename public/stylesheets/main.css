@@ -58,6 +58,9 @@ nav.navbar-default {
 .navbar-default {
 	/*background: black;*/
 	background-color: #222222;
+	/*background-color: #b21f1f;*/
+	/*opacity: 0.8;*/
+
 	/*background-color: #CA2511;*/
 	border : 0px solid black;
 }
@@ -90,16 +93,38 @@ url('/fonts/mywebfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 
 }
 
-#blog-page {
-	text-align: center;
+#blog-page,#news-page,#review-page {
 	color: white;
-	height: 380px;
-	background-image: url("http://hdanimewalls.com/wp-content/uploads/2015/04/49anime.jpg");
+	height: 350px;
+	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/7f/a2/73/7fa273b8adf538153a5ca836e6b89ef8.jpg");
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 150px;
+	margin-left: 105px;
+	width: 1109px;
+	line-height: 1.3;
+}
+
+#news-page {
+	background-image: url("http://img14.deviantart.net/14ec/i/2014/002/6/0/sword_art_online_ii_fan_made_wallpaper_by_legend_tony980-d70lkp6.png");
+}
+
+#review-page {
+	background-image: url("https://images5.alphacoders.com/533/thumb-1920-533693.jpg");
 }
 
 .jumbotron h1 {
 	padding-top: 90px;
+	text-align: center;
+}
+
+#blog-page>.post-type,#news-page>.post-type,#review-page>.post-type {
+	top : 170px;
+	left: 120px;
+	font-size: 30px;
+	font-weight: 800;
+	border-style: none;
 }
 
 /*.container.row {
@@ -246,7 +271,7 @@ h2 {
 }
 
 .blog-section:nth-of-type(1),.blog-section:nth-of-type(2),.blog-section:nth-of-type(3),.review-section:nth-of-type(1),.review-section:nth-of-type(2),.review-section:nth-of-type(3) {
-	margin-top: 20px;
+	margin-top: 30px;
 }
 
 .review-section {
@@ -425,7 +450,7 @@ a.big {
   pointer-events: none;  
 }
 
-.img.latest-colored:before {
+.img.latest-colored:before,.featured-news-img:before {
   z-index: 1;
   content: '';
   position: absolute;
@@ -469,8 +494,7 @@ a.big {
 	font-size: 20px;
 	font-weight: 600;
 	/*line-height: 1.1;*/
-    overflow: hidden;
-    /*margin-bottom: 10px;*/
+    /*overflow: hidden;*/
 }
 
 .col-md-4 p {
@@ -506,6 +530,22 @@ div.col-md-4 img {
 	/*height: 240px;*/
 	width: 100%;
 	padding-bottom: 20px;
+}
+
+hr.style7 {
+	margin-left : 124px;
+	width : 650px;
+	border-top: 1px solid #8c8b8b;
+	border-bottom: 1px solid #fff;
+}
+
+hr.style7:nth-of-type(4) {
+	display: none;
+}
+
+span.author-date {
+	color: #808080;
+	font-style: italic;
 }
 
 /*div.col-md-6 {
@@ -663,7 +703,7 @@ div.col-md-4 img {
 
 #main-blog-title, #main-revisited-title {
 	font-size: 55px;
-	font-weight: bold;
+	font-weight: 800;
 	text-align: center;
 	text-shadow: 5px 5px rgba(0,0,0,0.3);
 	margin-top: -75px;
@@ -705,7 +745,16 @@ div.col-md-4 img {
 
 .blog-author, .news-author {
 	letter-spacing: 1px;
-	font-size: 16px;
+	font-size: 14px;
+	color: #B3B4B7;
+	color: rgb(148, 149, 153);
+	letter-spacing: -0.1px;
+	word-spacing: 1px;
+}
+
+.news-author>.author {
+	font-size: 14px;
+	font-style: italic;
 }
 
 #main-blog-content, #main-revisited-content {
@@ -835,7 +884,7 @@ div.col-md-4 img {
     /*margin-top: 20px;*/
 }
 
-.thumbnail-related h3 {
+.thumbnail-related h3, .img h3 {
   font-size: 20px;
   font-weight: 800;
   position: absolute;
@@ -856,6 +905,8 @@ div.col-md-4 img {
     overflow: hidden;     
 }
 
+
+
 #container-more {
 	width: 1200px;
 }
@@ -873,6 +924,44 @@ a.ui {
 	float: left;
 	margin-right: 20px;
 }
+
+/*==========*/
+/*FEATURED NEWS*/
+/*==========*/
+
+.news-section-laptop>.col-md-offset-8> {
+	position: relative;
+	z-index: 1;
+}
+
+.featured-news-img>a>i {
+	padding-right: 6px;
+	font-size: 12px;
+}
+
+h3.featured-news-caption {
+	position: absolute;
+	z-index: 99;
+	font-size : 32px;
+	font-weight:900;
+	left:20px;
+	right:20px;
+	bottom : 60px;
+}
+
+h3.featured-news-author {
+	position: absolute;
+	z-index: 99;
+	font-size : 13px;
+	left:20px;
+	right:20px;
+	bottom : 20px;
+	font-weight:600;
+}
+
+/*==========*/
+/*FORM*/
+/*==========*/
 
 form {
 	top: 150px;
@@ -939,9 +1028,24 @@ textarea#comment {
 	font-size: 48px;
 }*/
 
-/*==============*/
+/*============*/
+/*LOGIN*/
+/*============*/
+
+.login-container {
+	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/0c/f0/4a/0cf04a89fc08404b86c8ec21ce03f9c4.jpg");
+}
+
+
+
+
+/*============*/
 /*NEWS*/
-/*==============*/
+/*============*/
+
+.news-container,.review-container {
+	margin-top: 90px;
+}
 
 #main-news-img img, #main-review-img img {
 	width: 825px;
@@ -961,16 +1065,29 @@ textarea#comment {
 	margin-left: 13px;
 	width: 80%;
 	font-size: 45px;
+	font-size: 50px;
 	color: black;
+	/*font-style: italic;*/
+	/*color: #333333;*/
 	letter-spacing: 1px;
-	font-weight: 700;
+	font-weight: 900;
 }
 
 .news-summary, .review-summary {
 	margin-top:0px;
 	color: #333333;
-	font-size: 25px;
+	color: #88888C;
+	font-size:22px;
 	font-weight: normal;
+}
+
+#news-more.post-detail,#more.post-detail {
+	font-size:25px;
+	padding-top:3px;
+	padding-bottom:3px;
+	margin-left: 0px;
+	width : 400px;
+	font-weight: 700;
 }
 
 /*PARTICULAR AUTHOR PAGE*/
@@ -986,6 +1103,14 @@ textarea#comment {
 	margin-top: -200px;
 }
 
+.author-name {
+	width: 45%;
+	/*border : 2px solid black;*/
+	padding:10px;
+	margin-left:200px;
+	margin-top: -250px;
+}
+
 .author-name h1 {
 	font-size: 30px;
 }
@@ -994,6 +1119,10 @@ textarea#comment {
 	font-size: 18px;
 	letter-spacing: 1.5px;
 	line-height:1.3;
+}
+
+.author-img {
+	margin-left: -45px;
 }
 
 .author-img img {
@@ -1031,7 +1160,7 @@ div.col-md-8 img {
 }
 
 .relative p {
-	font-size: 16px;
+	font-size: 14px;
 	letter-spacing: 0.7px;
 }
 
@@ -1039,6 +1168,35 @@ div.col-md-8 img {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.author-articles.news-section-laptop-container,.author-articles>.news-section-laptop {
+	display : block;
+}
+
+.author-articles>.news-section-laptop {
+	width: 800px;
+}
+
+.author-articles>hr.style7 {
+	width: 800px;
+}
+
+.author-articles>hr.style7:nth-of-type(4) {
+	margin-top: -50px;
+	display: block;
+}
+
+.author-articles>.blog-section-laptop:nth-of-type(1)>.relative>p {
+	margin-top: 15px;
+}
+
+.blog-all,.review-all,.news-all {
+	margin-top: 100px;
+}
+
+/*=============*/
+/*FOOTER*/
+/*=============*/
 
 
 footer {
@@ -1111,10 +1269,180 @@ footer>.row {
 	transition: color 0.2s;
 }
 
-
 .ion-social-facebook:hover {
 	color: #3b5998;
 }
 .ion-social-twitter:hover {
 	color: #00aced;
 }
+
+/*===========*/
+/*ABOUT*/
+/*===========*/
+
+.about-container {
+	margin-top :100px;
+}
+
+.about-container>.row>h1 {
+	margin-top :100px;
+	font-size :45px;
+	font-weight: 700;
+}
+
+.about-container>.row>p {
+	font-size :20px;
+}
+
+/*===========*/
+/*CONTACT*/
+/*===========*/
+
+#contact-page {
+	/*margin-top : 55.5px;*/
+	text-align: center;
+	color: white;
+	height: 600px;
+	height: 80%;
+	/*background-image: url("https://wallpaperfall.com/images/anime-1080p-wallpaper-widtiL8Yt7.jpg");*/
+	/*background-image: url("https://wallpaperscraft.com/download/guy_anime_computer_tears_sadness_room_96990/1280x720");*/
+	background-repeat: no-repeat;
+    background-position: center;
+}
+
+#contact-page img {
+	width : 100%;
+	height : 450px;
+	margin-bottom: 50px;
+}
+
+.contact-container {
+	margin-left : 300px;
+}
+
+/*===========*/
+/*LINKS*/
+/*===========*/
+
+a:link,
+a:visited {
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+a:hover,
+a:active {
+	color: #dc4225;
+}
+
+.news-section-laptop>.caption>a:link,
+.news-section-laptop>.caption>a:visited {
+	color: black;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: #888;	
+}
+
+.news-section-laptop>.caption>a:hover , .blog-section-laptop>.caption>a:hover , .review-section-laptop>.caption>a:hover {
+	color: #dc4225;
+}
+
+a.post-detail:link,
+a.post-detail:visited  {
+	color: #333333;
+}
+
+a.post-detail:hover,
+a.post-detail:active  {
+	color: #dc4225;
+}
+
+
+
+/*========*/
+
+.blog-section-laptop, .review-section-laptop {
+	display: none;
+}
+
+.news-section-laptop , .blog-section-laptop,.review-section-laptop {
+    margin-left : 124px;
+	width : 650px;
+	margin-top: -20px;
+	margin-bottom: -20px;
+}
+
+.review-section-laptop-container,.blog-section-laptop-container {
+	display : none;
+}
+
+.news-section-laptop-container,.review-section-laptop-container,.blog-section-laptop-container {
+	margin-left : 10px;	
+}
+
+.news-section-laptop>.thumbnail,.blog-section-laptop>.thumbnail,.review-section-laptop>.thumbnail {
+	float: left;
+	margin-right: 20px;
+	margin-top: 20px;
+	height : 200px;
+	width : 300px;
+}
+
+.news-section-laptop>.caption , .blog-section-laptop>.caption, .review-section-laptop>.caption {
+	margin-top: 20px;
+}
+
+.news-section-laptop>.caption>a>h1 , .blog-section-laptop>.caption>a>h1 , .review-section-laptop>.caption>a>h1 {
+	text-align: left;
+	font-size: 27px;
+	font-weight:900;
+	overflow: hidden;
+}
+
+.news-section-laptop:nth-of-type(1)>.relative>p {
+	margin-top: 5px;
+}
+
+.news-section-laptop>.thumbnail a>img , .blog-section-laptop>.thumbnail a>img, .review-section-laptop>.thumbnail a>img  {        /*latest change*/
+	height: 184px;
+	height : 261px; /*latest change*/
+	height : 200px;
+}
+
+.news-section-laptop>.relative , .blog-section-laptop>.relative,.review-section-laptop>.relative {
+	height: 100px;
+	width: 330px;
+	overflow: hidden;
+	margin-top: 7px;
+}
+
+.news-section-laptop>.relative>p , .blog-section-laptop>.relative>p,.review-section-laptop>.relative>p {
+	font-size: 14px;
+	text-align:left;
+	overflow: hidden;
+	margin-top: -5px;
+	width: 335px;
+}
+
+.news-section:nth-of-type(1) {
+	margin-left: 60px;
+}
+
+.news-section:nth-of-type(1),.news-section:nth-of-type(2),.news-section:nth-of-type(3) {
+	margin-top: 20px;
+}
+
+.news-section-laptop:nth-of-type(1),.blog-section-laptop:nth-of-type(1),.review-section-laptop:nth-of-type(1) {
+	margin-top: 20px;
+}
+
+.news-section:nth-of-type(4) {
+	margin-left: 60px;
+	margin-bottom: 50px;
+}
+
+.news-section-laptop:nth-of-type(4) {
+	margin-bottom: 50px;
+}
+

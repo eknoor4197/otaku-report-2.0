@@ -496,7 +496,7 @@ app.get("/review/:id/:title/edit", function(req,res) {
 		if(err) {
 			res.redirect("/review");
 		} else {
-			res.render("editReview", {review : foundReview , title: "Edit Review"});
+			res.render("editReview", {review : foundReview , title: "Edit Review | Otaku Report"});
 		}
 	})
 })

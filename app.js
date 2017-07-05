@@ -425,7 +425,7 @@ app.get("/review" , function(req,res) {
 })
 
 //NEW REVIEW - FORM
-app.get("/review/new", function(req,res) {
+app.get("/review/new", isLoggedIn, function(req,res) {
 	res.render("newReview", { title : "New Review" });
 })
 

@@ -277,6 +277,22 @@
 	    <% }) %>
 
 	    
+		<% featuredReviews.forEach(function(featured,index) { %>
+		
+	    	  <div class="row">
+              <div class="img wrapper">
+
+              <img class="img-responsive" src="<%= featured.image %>">
+		      <a href="/review" class="post-type"><i class="fa fa-certificate" style="padding-right: 6px;font-size: 12px;" aria-hidden="true"></i>REVIEW | HIGHLIGHT</a>
+  
+		      <div class="overlay caption">
+
+	          <a href="/review/<%= featured._id %>/<%= featured.title %>"><h1> <%= featured.title %></h1></a>
+		        <span class="featured-author" ><em><a class="author" href="/author/<%= featured.author %>"><%= featured.author %></a> | <%= featured.date %></em></span>
+		        
+		      </div>
+	         </div>
+
 	    <% }) %>
 
 	    </div>

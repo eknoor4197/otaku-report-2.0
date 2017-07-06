@@ -426,7 +426,7 @@ app.get("/review" , function(req,res) {
 
 //NEW REVIEW - FORM
 app.get("/review/new", isLoggedIn, function(req,res) {
-	res.render("newReview", { title : "New Review" });
+	res.render("newReview", { title : "New Review | Otaku Report" });
 })
 
 //NEW REVIEW - CREATE
@@ -496,7 +496,7 @@ app.get("/review/:id/:title/edit", function(req,res) {
 		if(err) {
 			res.redirect("/review");
 		} else {
-			res.render("editReview", {review : foundReview , title: "Edit Review"});
+			res.render("editReview", {review : foundReview , title: "Edit Review | Otaku Report"});
 		}
 	})
 })
@@ -561,7 +561,7 @@ app.get("/news", function(req,res) {
 
 //NEW NEWS - FORM
 app.get("/news/new", isLoggedIn , function(req,res) {
-	res.render("newNews" , { title : "New News" });
+	res.render("newNews" , { title : "New News | Otaku Report" });
 })
 
 //NEW NEWS - CREATE

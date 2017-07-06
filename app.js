@@ -561,7 +561,7 @@ app.get("/news", function(req,res) {
 
 //NEW NEWS - FORM
 app.get("/news/new", isLoggedIn , function(req,res) {
-	res.render("newNews" , { title : "New News" });
+	res.render("newNews" , { title : "New News | Otaku Report" });
 })
 
 //NEW NEWS - CREATE

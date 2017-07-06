@@ -426,7 +426,7 @@ app.get("/review" , function(req,res) {
 
 //NEW REVIEW - FORM
 app.get("/review/new", isLoggedIn, function(req,res) {
-	res.render("newReview", { title : "New Review" });
+	res.render("newReview", { title : "New Review | Otaku Report" });
 })
 
 //NEW REVIEW - CREATE

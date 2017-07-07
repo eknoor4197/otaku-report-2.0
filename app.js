@@ -236,7 +236,7 @@ app.get("/blog", function(req,res) {
 
 //NEW BLOG - FORM
 app.get("/blog/new", isLoggedIn, function(req,res) {
-	res.render("newBlog", { title : "New Blog | Otaku-Report"} );
+	res.render("newBlog", { title : "New Blog | Otaku Report"} );
 })
 
 //NEW BLOG - CREATE
